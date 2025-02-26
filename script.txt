@@ -1,0 +1,38 @@
+Efficient automation is crucial for organisational success. Cost-effective and dependable software programs are revolutionising inventory management systems and leading to significant improvements in efficiency. This presentation details the design and development of a Python-based solution for restaurant inventory and booking management.
+The solution aims to:
+•	Automate inventory tracking, to eliminate manual processes and minimise errors.
+•	Integrate online bookings with pre-ordering functionalities.
+•	Allow customer and staff logins through an account system.
+•	Generate low-stock alerts for staff.
+•	And provide statistics on inventory usage.
+To achieve these goals, the system's functionality is divided into frontend and backend components. This presentation focuses on the backend.
+A flowchart depicts the high-level interactions between components of the system. The blue nodes represent frontend scripts for parsing inputs, and the green nodes represent the backend methods for handling processes, calculations, and data manipulation. The process is initialised by either: a customer booking, or staff requesting statistics and updating inventory. A client-side script validates and forwards user input to the backend to complete the appropriate action.
+To translate the high-level functionalities outlined in the flowchart into a functional program, the backend is divided into five modular classes: Bookings, Inventory, Meals, Usages, and Accounts. As seen in the comments on screen, each class encapsulates specific functionalities to achieve the outlined goals.
+These outlines are utilised to implement the functionality of each class.
+The Bookings class is the first of these classes, and contains four methods to manage booking requests and table availability.
+Its constructor method creates an empty dictionary self.bookings to store booking information and sets the total number of tables in the restaurant (self.tables) to a value of 25.
+The create_booking method receives the customer’s name, table, time, meals, and also Inventory, Meals, and Usages objects. It then creates a booking ID using the customer's name and booking time and then interacts with the Meals class to verify if the requested table is free and that sufficient ingredients are in stock to prepare the requested meals.
+If these checks pass, the method appends the bookings to self.bookings and removes ingredients to be used in the requested meals from the stock.
+Cancel_booking deletes a booking given that booking’s ID, and get_available_tables returns a list of all tables available at the given time.
+The second class is the Inventory class, which manages stock levels of ingredients.
+Its constructor creates an empty dictionary, self.items, to store the inventory information. Each key in the dictionary represents an ingredient name, and the corresponding value represents the quantity of that ingredient in stock.
+The add and remove ingredient methods manipulate a specified quantity of an ingredient in the stock dictionary, and the get_stock and get_quantity methods return quantities of ingredients within the stock.
+The meals class contains four methods. Two to manage recipes, and two to check if a given combination of meals can be prepared considering current stock levels.
+These are the first three methods in detail.
+The fourth method, is_available_with_quantities, is more complicated, and works by looping through requested meals, checking if recipes exist, accumulating the ingredients needed for the meals, and then checking if the inventory contains all the necessary ingredients.
+The next class, Usages, contains three methods to track ingredient usage.
+The usage class’s constructor defines the log dictionary. The three methods contained in the usages class all track ingredient usage in some way. The log_usage method is called to record all ingredients used in a confirmed booking. Get_usages allows staff to view usage history of a given item, with optional time and ingredient filters.
+The predict_shortages method iterates through each ingredient with a logged usage and returns a list of ingredients that have exhausted 70% of their stock within the past week.
+The last class, Accounts, manages customer account creation and authentication, and also allows for verification of staff.
+Its constructor method defines the default staff credentials and loads customer accounts from a file through its load_accounts method. The save_accounts method is similar in that it writes the dictionary in memory back to the file.
+The login and staff_login methods determine whether a specified username and password are within the accounts dictionary, and the register method checks if the username already exists, and then writes the given username and password to the accounts dictionary.
+●	A simple text I/O interface was constructed for the purpose of debugging and demonstrating these classes.
+●	*cut to video* 
+●	In this demonstration, all objects are initialised here. The add_ingredient method is called to add flour, eggs, and milk to the stock. A recipe for pancakes is also appended to a dictionary within the meals object.
+●	A sample booking for John Doe who wants two pancakes will be created. This booking is successful. If a booking for Jane Doe, who also wants pancakes is created, the booking is unsuccessful. This is intended, as there is only enough flour in the stock for two pancakes. Similar results can be observed when an attempt is made to book an already-reserved table.
+●	After logging out, there is an option to login again as a staff member. Staff can view bookings, manage the inventory, view usage logs of ingredients, and call the predict shortages method.
+The restaurant booking and inventory management system's backend is capable of effectively achieving the defined goals when paired with a well-designed frontend, such as this UI by OpenTable (on video). While the current demonstration script requires manual data entry and lacks input validation, a proper web-based UI addresses these limitations. The following presentation will focus on the frontend's functionalities, including user-friendly selection controls for bookings, consistent data handling for ingredients, and password hashing to protect customer information. 
+Notably, the backend could utilise an external database to ensure bookings, inventory levels, and usage logs are persistent, along with the accounts dictionary.
+Overall, the modular design of this backend solution supports scalability and customisation. By integrating a user-friendly frontend with persistent data storage, this solution has the potential to improve the efficiency of restaurant inventory and booking systems.
+Thank you for listening.
+
