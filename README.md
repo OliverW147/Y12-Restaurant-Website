@@ -2,7 +2,7 @@
 
 Script for presentations:
 
-1.
+1
 
 Efficient automation is crucial for organisational success. Cost-effective and dependable software programs are revolutionising inventory management systems and leading to significant improvements in efficiency. This presentation details the design and development of a Python-based solution for restaurant inventory and booking management.
 The solution aims to:
@@ -42,7 +42,7 @@ Notably, the backend could utilise an external database to ensure bookings, inve
 Overall, the modular design of this backend solution supports scalability and customisation. By integrating a user-friendly frontend with persistent data storage, this solution has the potential to improve the efficiency of restaurant inventory and booking systems.
 Thank you for listening.
 
-2.
+2
 
 The previous presentation detailed the development of a Python-based system for restaurant inventory and booking management. This presentation explores the iterative development of a restaurant’s web application, leveraging the preceding Python-based system to manage the web-app’s core functionality.
 In order to effectively streamline customer interactions, the web-app must be user-friendly, visually appealing, and responsive.
