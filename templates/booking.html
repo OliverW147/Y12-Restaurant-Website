@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="display-4">Book a Table</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="table_num">Table Number</label>
+                <select class="form-control" id="table_num" name="table_num">
+                    {% for table in available_tables %}
+                        <option value="{{ table }}">{{ table }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="booking_date">Booking Date</label>
+                <input type="date" class="form-control" id="booking_date" name="booking_date">
+            </div>
+            <div class="form-group">
+                <label for="booking_time">Booking Time</label>
+                <select class="form-control" id="booking_time" name="booking_time"></select>
+            </div>
+            <h2 class="mt-4">Meals</h2>
+            {% for meal, ingredients in meals.items() %}
+                <div class="form-group">
+                    <label for="{{ meal }}">{{ meal }}</label>
+                    <input type="number" class="form-control" id="{{ meal }}" name="{{ meal }}">
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-block mt-4">Book</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var bookingTimeSelect = document.getElementById('booking_time');
+        var openHours = 8; // Restaurant opens at 8 AM
+        var closeHours = 22; // Restaurant closes at 10 PM
+
+        for (var hour = openHours; hour <= closeHours; hour++) {
+            var option = document.createElement('option');
+            var timeString = hour.toString().padStart(2, '0') + ':00';
+            option.value = timeString;
+            option.text = timeString;
+            bookingTimeSelect.appendChild(option);
+        }
+    });
+</script>
+{% endblock %}

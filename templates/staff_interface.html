@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Staff Dashboard</h1>
+<ul>
+    <li><a href="{{ url_for('staff_bookings') }}">Manage Bookings</a></li>
+    <li><a href="{{ url_for('staff_inventory') }}">Manage Inventory</a></li>
+    <li><a href="{{ url_for('staff_usages') }}">View Usage Logs</a></li>
+    <li><a href="{{ url_for('staff_meals') }}">Manage Meals</a></li>
+</ul>
+<a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+{% endblock %}

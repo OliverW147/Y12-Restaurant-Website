@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Ingredient Usage Logs</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ingredient</th>
+            <th>Quantity</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usage in usages %}
+            <tr>
+                <td>{{ usage.ingredient }}</td>
+                <td>{{ usage.quantity }}</td>
+                <td>{{ usage.time }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

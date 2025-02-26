@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Staff Bookings</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Name</th>
+                    <th>Table Number</th>
+                    <th>Booking Time</th>
+                    <th>Requested Meals</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking_id, booking_info in bookings.items() %}
+                    <tr>
+                        <td>{{ booking_id }}</td>
+                        <td>{{ booking_info.name }}</td>
+                        <td>{{ booking_info.table_num }}</td>
+                        <td>{{ booking_info.booking_time }}</td>
+                        <td>
+                            <ul>
+                                {% for meal, quantity in booking_info.requested_meals.items() %}
+                                    <li>{{ meal }}: {{ quantity }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <form method="POST" action="{{ url_for('cancel_booking', booking_id=booking_id) }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

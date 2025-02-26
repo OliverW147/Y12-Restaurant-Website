@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Manage Inventory</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="ingredient">Ingredient</label>
+        <input type="text" class="form-control" id="ingredient" name="ingredient">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity">
+    </div>
+    <div class="form-group">
+        <label for="action">Action</label>
+        <select class="form-control" id="action" name="action">
+            <option value="add">Add</option>
+            <option value="remove">Remove</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Inventory</button>
+</form>
+<h2>Current Stock</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ingredient</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ingredient, quantity in stock.items() %}
+            <tr>
+                <td>{{ ingredient }}</td>
+                <td>{{ quantity }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

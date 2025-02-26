@@ -1,0 +1,1 @@
+{"Flour": 95, "Tomatoes": 150, "Basil": 50, "Garlic": 194, "Olive Oil": 100, "Bread": 78, "Butter": 57, "Parsley": 39, "Mushrooms": 120, "Cheese": 100, "Breadcrumbs": 70, "Salmon": 50, "Lemon": 75, "Herbs": 80, "Steak": 58, "Salt": 198, "Pepper": 148, "Chicken": 90, "Pasta": 180, "Cream": 110, "Parmesan": 100}

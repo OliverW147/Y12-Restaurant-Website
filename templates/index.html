@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Our Restaurant</h1>
+            <p class="lead">Experience the finest dining with us</p>
+            {% if 'username' in session %}
+                <a href="{{ url_for('book') }}" class="btn btn-primary btn-lg">Make a Booking</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary btn-lg ml-2">Logout</a>
+            {% elif 'staff_username' in session %}
+                <a href="{{ url_for('staff_dashboard') }}" class="btn btn-primary btn-lg">Staff Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary btn-lg ml-2">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary btn-lg ml-2">Register</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>Our restaurant offers food that is tasteful and pleasing.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='1.jfif') }}" class="img-fluid rounded" alt="About Us Image">
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <h2>Our Menu</h2>
+                <p>We prepare some delicious courses for many tastes.</p>
+                <a href="{{ url_for('menu') }}" class="btn btn-outline-primary">View Menu</a>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <img src="{{ url_for('static', filename='2.jpeg') }}" class="img-fluid rounded" alt="Menu Image">
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contact Us</h2>
+                <p>Have a question for us? Contact us today.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">Contact Information</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='3.png') }}" class="img-fluid rounded" alt="Contact Us Image">
+            </div>
+        </div>
+    </div>
+{% endblock %}
