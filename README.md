@@ -77,14 +77,6 @@ The project development was divided into three key stages:
    - Customers can create an account, log in, and book tables.
    - Staff members can log in with predefined credentials to manage bookings, inventory, and meal data.
 
-## Future Enhancements
-
-- **Persistent Data Storage**: Currently, the system uses in-memory data structures. Integrating a database (e.g., SQLite, PostgreSQL) would allow for persistent storage of bookings, inventory, and user accounts.
-- **Advanced Features**: Future iterations could include advanced features like:
-  - Email notifications for booking confirmations and low-stock alerts.
-  - Integration with a payment gateway for processing online payments.
-  - Customer feedback system to improve service quality.
-
 ## Acknowledgements
 
 - **Flask**: For providing a simple yet powerful web framework that integrates seamlessly with Python.
