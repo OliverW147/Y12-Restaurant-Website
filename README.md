@@ -1,4 +1,4 @@
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![website](https://github.com/OliverW147/Y12-Restaurant-Website/blob/main/image.png?raw=true)
 
 Script for presentations:
 
